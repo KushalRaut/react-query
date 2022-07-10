@@ -1,12 +1,13 @@
-import Homepage from './components/Homepage';
-import RQSuperHeros from './components/RQSuperHeros';
-import Superheros from './components/Superheros';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import './App.css';
+import Homepage from './components/Homepage'
+import RQSuperHeros from './components/RQSuperHeros'
+import Superheros from './components/Superheros'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import './App.css'
+import RQSuperHeroPage from './components/RQSuperHeroPage'
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function App() {
   return (
@@ -30,12 +31,16 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/super-heros" element={<Superheros />} />
             <Route path="/rq-super-heros" element={<RQSuperHeros />} />
+            <Route
+              path="/rq-super-heros/:heroId"
+              element={<RQSuperHeroPage />}
+            />
           </Routes>
         </Router>
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </QueryClientProvider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
