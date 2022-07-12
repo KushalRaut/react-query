@@ -10,6 +10,7 @@ import ParallelQueries from './components/ParallelQueries'
 import DynamicQueries from './components/DynamicQueries'
 import DependentQueries from './components/DependentQueries'
 import PaginatedQueries from './components/PaginatedQueries'
+import InfiniteQueries from './components/InfiniteQueries'
 
 const queryClient = new QueryClient()
 
@@ -52,6 +53,7 @@ function App() {
               path="/rq-paginated-queries"
               element={<PaginatedQueries />}
             />
+            <Route path="/rq-infinite-queries" element={<InfiniteQueries />} />
           </Routes>
         </Router>
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
