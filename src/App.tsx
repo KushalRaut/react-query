@@ -11,6 +11,7 @@ import DynamicQueries from './components/DynamicQueries'
 import DependentQueries from './components/DependentQueries'
 import PaginatedQueries from './components/PaginatedQueries'
 import InfiniteQueries from './components/InfiniteQueries'
+import MutationQuery from './components/MutationQuery'
 
 const queryClient = new QueryClient()
 
@@ -54,6 +55,7 @@ function App() {
               element={<PaginatedQueries />}
             />
             <Route path="/rq-infinite-queries" element={<InfiniteQueries />} />
+            <Route path="/rq-mutation-queries" element={<MutationQuery />} />
           </Routes>
         </Router>
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />

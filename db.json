@@ -19,6 +19,21 @@
       "id": 4,
       "name": "Arm Man Woman",
       "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "SpiderMan",
+      "alterEgo": "Peter Parker",
+      "id": 5
+    },
+    {
+      "name": "Captain America",
+      "alterEgo": "Chris Evans",
+      "id": 6
+    },
+    {
+      "name": "IronMan",
+      "alterEgo": "Tony Stark",
+      "id": 7
     }
   ],
   "friends": [
@@ -56,7 +71,11 @@
   "channels": [
     {
       "id": "codevolution",
-      "courses": ["react", "vue", "angular"]
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "colors": [
