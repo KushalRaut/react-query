@@ -34,14 +34,36 @@ export const useAddSuperHeroData = () => {
   const queryClient = useQueryClient()
 
   return useMutation(addSuperHero, {
-    onSuccess: (data) => {
-      // queryClient.invalidateQueries('super-heros')
+    // onSuccess: (data) => {
+    //   // queryClient.invalidateQueries('super-heros')
+    //   queryClient.setQueriesData('super-heros', (oldQueryData: any) => {
+    //     return {
+    //       ...oldQueryData,
+    //       data: [...oldQueryData.data, data.data],
+    //     }
+    //   })
+    // },
+    onMutate: async (newHero) => {
+      await queryClient.cancelQueries('super-heros')
+      const previousHeroData = queryClient.getQueriesData('super-heros')
       queryClient.setQueriesData('super-heros', (oldQueryData: any) => {
         return {
           ...oldQueryData,
-          data: [...oldQueryData.data, data.data],
+          data: [
+            ...oldQueryData.data,
+            { id: oldQueryData?.data?.length + 1, ...newHero },
+          ],
         }
       })
+      return {
+        previousHeroData,
+      }
+    },
+    onError: (_error, _hero, context: any) => {
+      queryClient.setQueryData('super-heros', context.previousHeroData)
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries('super-heros')
     },
   })
 }
